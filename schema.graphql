@@ -1,0 +1,92 @@
+type EventsSummary {
+  id: ID!
+  logDeposit: [LogDeposit!]! @derivedFrom(field: "eventsSummary")
+  logDepositsCount: BigInt!
+  logDepositCancelRequest: [LogDepositCancelRequest!]!
+    @derivedFrom(field: "eventsSummary")
+  logDepositCancelRequestsCount: BigInt!
+  logDepositReclaimed: [LogDepositReclaimed!]!
+    @derivedFrom(field: "eventsSummary")
+  logDepositReclaimedsCount: BigInt!
+  logNewGovernorAccepted: [LogNewGovernorAccepted!]!
+    @derivedFrom(field: "eventsSummary")
+  logNewGovernorAcceptedsCount: BigInt!
+  logNominatedGovernor: [LogNominatedGovernor!]!
+    @derivedFrom(field: "eventsSummary")
+  logNominatedGovernorsCount: BigInt!
+  logRemovedGovernor: [LogRemovedGovernor!]!
+    @derivedFrom(field: "eventsSummary")
+  logRemovedGovernorsCount: BigInt!
+  logSetL2TokenBridge: [LogSetL2TokenBridge!]!
+    @derivedFrom(field: "eventsSummary")
+  logSetL2TokenBridgesCount: BigInt!
+  logSetMaxDeposit: [LogSetMaxDeposit!]! @derivedFrom(field: "eventsSummary")
+  logSetMaxDepositsCount: BigInt!
+  logSetMaxTotalBalance: [LogSetMaxTotalBalance!]!
+    @derivedFrom(field: "eventsSummary")
+  logSetMaxTotalBalancesCount: BigInt!
+  logWithdrawal: [LogWithdrawal!]! @derivedFrom(field: "eventsSummary")
+  logWithdrawalsCount: BigInt!
+}
+
+type LogDeposit {
+  id: ID!
+  sender: String!
+  amount: BigInt!
+  l2Recipient: BigInt!
+  nonce: BigInt!
+  fee: BigInt!
+  eventsSummary: String!
+}
+type LogDepositCancelRequest {
+  id: ID!
+  sender: String!
+  amount: BigInt!
+  l2Recipient: BigInt!
+  nonce: BigInt!
+  eventsSummary: String!
+}
+type LogDepositReclaimed {
+  id: ID!
+  sender: String!
+  amount: BigInt!
+  l2Recipient: BigInt!
+  nonce: BigInt!
+  eventsSummary: String!
+}
+type LogNewGovernorAccepted {
+  id: ID!
+  acceptedGovernor: String!
+  eventsSummary: String!
+}
+type LogNominatedGovernor {
+  id: ID!
+  nominatedGovernor: String!
+  eventsSummary: String!
+}
+type LogRemovedGovernor {
+  id: ID!
+  removedGovernor: String!
+  eventsSummary: String!
+}
+type LogSetL2TokenBridge {
+  id: ID!
+  value: BigInt!
+  eventsSummary: String!
+}
+type LogSetMaxDeposit {
+  id: ID!
+  value: BigInt!
+  eventsSummary: String!
+}
+type LogSetMaxTotalBalance {
+  id: ID!
+  value: BigInt!
+  eventsSummary: String!
+}
+type LogWithdrawal {
+  id: ID!
+  recipient: String!
+  amount: BigInt!
+  eventsSummary: String!
+}

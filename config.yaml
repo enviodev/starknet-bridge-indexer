@@ -1,0 +1,41 @@
+name: StarknetEthBridge
+description: stark
+networks:
+  - id: 1
+    start_block: 0
+    contracts:
+      - name: StarknetEthBridge
+        handler: src/EventHandlers.ts
+        address:
+          - 0xae0Ee0A63A2cE6BaeEFFE56e7714FB4EFE48D419
+        events:
+          - event: LogDeposit(address indexed sender, uint256 amount, uint256 indexed l2Recipient, uint256 nonce, uint256 fee)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogDepositCancelRequest(address indexed sender, uint256 amount, uint256 indexed l2Recipient, uint256 nonce)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogDepositReclaimed(address indexed sender, uint256 amount, uint256 indexed l2Recipient, uint256 nonce)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogNewGovernorAccepted(address acceptedGovernor)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogNominatedGovernor(address nominatedGovernor)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogRemovedGovernor(address removedGovernor)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogSetL2TokenBridge(uint256 value)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogSetMaxDeposit(uint256 value)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogSetMaxTotalBalance(uint256 value)
+            requiredEntities:
+              - name: EventsSummary
+          - event: LogWithdrawal(address indexed recipient, uint256 amount)
+            requiredEntities:
+              - name: EventsSummary
